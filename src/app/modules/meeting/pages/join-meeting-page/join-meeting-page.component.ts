@@ -1,24 +1,41 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { reaction } from 'mobx';
+import { MeetingViewModel } from '../../viewmodels/meeting.viewmodel';
+import { TestViewModel } from '../../viewmodels/test.viewmodel';
 
 @Component({
-  selector: 'join-meeting-page',
-  templateUrl: './join-meeting-page.component.html',
-  styleUrls: ['./join-meeting-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'join-meeting-page',
+	templateUrl: './join-meeting-page.component.html',
+	styleUrls: ['./join-meeting-page.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class JoinMeetingPage {
+export class JoinMeetingPage implements OnInit {
+	isCreated: boolean = true;
+	showPreview: boolean = false;
 
-  isCreated: boolean = true;
-  showPreview: boolean = false;
+	constructor(public meetingViewModel: MeetingViewModel) {}
 
-  constructor() {}
-  
-  joinMeeting() {
-    this.showPreview = true;
-    this.isCreated = false;
-  }
+	ngOnInit(): void {
+		reaction(
+			() => this.meetingViewModel.isLoadingSuccess,
+			(isLoadingSuccess) => {
+				if (isLoadingSuccess) {
+					Promise.resolve().then(() => {
+						this.meetingViewModel.localVideo.start(this.meetingViewModel.PREVIEW_VIDEO_ELEMENT);
+					});
+				}
+			}
+		);
+	}
 
-  createNewMeeting() {
-    this.showPreview = true;
-  }
+	joinMeeting() {
+		this.meetingViewModel.setup();
+		this.showPreview = true;
+		this.isCreated = false;
+	}
+
+	createNewMeeting() {
+		this.meetingViewModel.setup();
+		this.showPreview = true;
+	}
 }

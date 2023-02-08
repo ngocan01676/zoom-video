@@ -5,14 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MobxAngularModule } from 'mobx-angular';
 
 @NgModule({
-  declarations: [],
-  imports: [],
-  exports: [
-    CommonModule,
-    MobxAngularModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule,
-  ]
+	declarations: [],
+	imports: [],
+	exports: [CommonModule, MobxAngularModule, FormsModule, ReactiveFormsModule, TranslateModule],
 })
 export class SharedModule {}

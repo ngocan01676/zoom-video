@@ -1,8 +1,16 @@
 {
-  "meeting.join-meeting-page.passcode":"Passcode",
-  "meeting.join-meeting-page.join": "Join meeting",
-  "meeting.join-meeting-page.enter-passcode": "Enter your passcode",
-  "meeting.join-meeting-page.join-meeting-btn": "Join meeting",
-  "meeting.join-meeting-page.start-meeting-btn": "Start a new meeting",
-  "meeting.join-meeting-page.ready-to-join": "Ready to join?"
+	"meeting.join-meeting-page.passcode": "Passcode",
+	"meeting.join-meeting-page.join": "Join meeting",
+	"meeting.join-meeting-page.enter-passcode": "Enter your passcode",
+	"meeting.join-meeting-page.join-meeting-btn": "Join meeting",
+	"meeting.join-meeting-page.start-meeting-btn": "Start a new meeting",
+	"meeting.join-meeting-page.ready-to-join": "Ready to join?",
+	"meeting.join-meeting-page.audio-video": "Audio & video",
+	"meeting.join-meeting-page.background": "Background",
+	"meeting.join-meeting-page.camera": "Camera",
+	"meeting.join-meeting-page.microphone": "Microphone",
+	"meeting.join-meeting-page.speaker": "Speaker",
+	"meeting.join-meeting-page.select-camera": "Select Camera",
+	"meeting.join-meeting-page.select-mics": "Select Mics",
+	"meeting.join-meeting-page.select-speaker": "Select Speaker"
 }

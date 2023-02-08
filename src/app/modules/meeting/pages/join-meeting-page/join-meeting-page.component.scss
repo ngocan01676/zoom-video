@@ -1,3 +1,7 @@
 .form-control {
-  @apply border-dotted border-b p-5;
+	@apply border-dotted border-b p-5;
+}
+
+.content-preview {
+	@apply bg-gray-200 rounded p-6;
 }

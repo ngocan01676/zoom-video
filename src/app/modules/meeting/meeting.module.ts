@@ -6,31 +6,29 @@ import { MeetingPage } from './pages/meeting-page/meeting-page.component';
 import { JoinMeetingPage } from './pages/join-meeting-page/join-meeting-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
-
+import { MeetingViewModel } from './viewmodels/meeting.viewmodel';
+import { TestViewModel } from './viewmodels/test.viewmodel';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MeetingLayoutComponent,
-    children: [
-      {
-        path: 'join-meeting',
-        component: JoinMeetingPage,
-      },
-      {
-        path: 'meeting',
-        component: MeetingPage,
-      },
-    ]
-  }
+	{
+		path: '',
+		component: MeetingLayoutComponent,
+		children: [
+			{
+				path: 'join-meeting',
+				component: JoinMeetingPage,
+			},
+			{
+				path: 'meeting',
+				component: MeetingPage,
+			},
+		],
+	},
 ];
 @NgModule({
-  declarations: [
-    MeetingLayoutComponent,
-    MeetingPage,
-    JoinMeetingPage
-  ],
-  imports: [CommonModule,RouterModule.forChild(routes),SharedModule,MaterialModule],
-  exports: [RouterModule]
+	declarations: [MeetingLayoutComponent, MeetingPage, JoinMeetingPage],
+	imports: [CommonModule, RouterModule.forChild(routes), SharedModule, MaterialModule],
+	exports: [RouterModule],
+	providers: [MeetingViewModel, TestViewModel],
 })
-export class MeetingModule { }
+export class MeetingModule {}
