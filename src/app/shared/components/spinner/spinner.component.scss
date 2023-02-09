@@ -1,0 +1,10 @@
+.spinner-wrapper {
+	@apply w-screen h-screen fixed w-full h-full top-0 left-0;
+	&:before {
+		content: '';
+		@apply absolute top-0 left-0 z-[99] w-full h-full bg-black opacity-30;
+	}
+	mat-progress-spinner {
+		@apply absolute top-[50%] left-[50%] z-[100];
+	}
+}

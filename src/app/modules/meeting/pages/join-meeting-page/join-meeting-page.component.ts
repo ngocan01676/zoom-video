@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { reaction } from 'mobx';
 import { MeetingViewModel } from '../../viewmodels/meeting.viewmodel';
-import { TestViewModel } from '../../viewmodels/test.viewmodel';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'join-meeting-page',
@@ -13,7 +13,7 @@ export class JoinMeetingPage implements OnInit {
 	isCreated: boolean = true;
 	showPreview: boolean = false;
 
-	constructor(public meetingViewModel: MeetingViewModel) {}
+	constructor(public meetingViewModel: MeetingViewModel, private router: Router) {}
 
 	ngOnInit(): void {
 		reaction(
@@ -37,5 +37,9 @@ export class JoinMeetingPage implements OnInit {
 	createNewMeeting() {
 		this.meetingViewModel.setup();
 		this.showPreview = true;
+	}
+
+	joinNow() {
+		this.router.navigate(['/meeting']);
 	}
 }

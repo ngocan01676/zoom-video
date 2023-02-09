@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 import { MeetingViewModel } from './viewmodels/meeting.viewmodel';
 import { TestViewModel } from './viewmodels/test.viewmodel';
+import { IconToggleComponent } from 'src/app/shared/components/icon-toggle/icon-toggle.component';
 
 const routes: Routes = [
 	{
@@ -26,7 +27,7 @@ const routes: Routes = [
 	},
 ];
 @NgModule({
-	declarations: [MeetingLayoutComponent, MeetingPage, JoinMeetingPage],
+	declarations: [MeetingLayoutComponent, MeetingPage, JoinMeetingPage, IconToggleComponent],
 	imports: [CommonModule, RouterModule.forChild(routes), SharedModule, MaterialModule],
 	exports: [RouterModule],
 	providers: [MeetingViewModel, TestViewModel],

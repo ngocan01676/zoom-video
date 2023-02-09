@@ -1,0 +1,19 @@
+.meeting-wrapper {
+	@apply flex;
+	.side {
+		@apply max-w-[88px] bg-slate-100 h-screen rounded-[6px] w-full;
+		h3 {
+			@apply font-bold #{!important};
+		}
+	}
+	.main-content {
+		@apply flex pl-[24px];
+		width: calc(100% - 112px);
+		.chat-box {
+			@apply ml-[28px] rounded-[6px];
+		}
+		.screen {
+			@apply rounded-[6px];
+		}
+	}
+}

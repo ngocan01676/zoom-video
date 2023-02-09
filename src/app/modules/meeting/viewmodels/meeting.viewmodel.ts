@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { AllDeviceName, IMediaDevice } from '../shared/media-device.model';
 import ZoomVideo, { Stream, VideoClient } from '@zoom/videosdk';
 import { DOCUMENT } from '@angular/common';
+import { SpinnerService } from 'src/app/shared/services/spinner.service';
 
 declare global {
 	interface Window {
@@ -39,7 +40,7 @@ export class MeetingViewModel {
 
 	PREVIEW_VIDEO_ELEMENT: HTMLVideoElement;
 
-	constructor(@Inject(DOCUMENT) private document: Document) {
+	constructor(@Inject(DOCUMENT) private document: Document, private spinnerService: SpinnerService) {
 		makeAutoObservable(this);
 	}
 
@@ -149,6 +150,7 @@ export class MeetingViewModel {
 	}
 
 	*setup() {
+		this.spinnerService.show();
 		this.defineParam();
 		const { sdkKey, topic, signature, name, password, webEndpoint: webEndpointArg, enforceGalleryView } = this.meetingArgs;
 		const galleryViewWithoutSAB = Number(enforceGalleryView) === 1 && !window.crossOriginIsolated;
@@ -178,6 +180,7 @@ export class MeetingViewModel {
 		this.isLoadingSuccess = true;
 		this.PREVIEW_VIDEO_ELEMENT = this.document.getElementById('js-preview-video') as HTMLVideoElement;
 		console.log('this.PREVIEW_VIDEO_ELEMENT this.PREVIEW_VIDEO_ELEMENT ', this.PREVIEW_VIDEO_ELEMENT);
+		this.spinnerService.hide();
 	}
 
 	toggleLocalVideo() {

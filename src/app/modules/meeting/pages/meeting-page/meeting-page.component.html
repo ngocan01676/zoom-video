@@ -1,1 +1,13 @@
-<p>meeting-page works!</p>
+<ng-container *mobxAutorun>
+	<div class="meeting-wrapper mx-auto w-5/6 max-w-full p-3">
+		<div class="side flex flex-col justify-between py-3">
+			<h3 class="text-center text-blue-700">LOGO</h3>
+			<img class="mx-auto" src="assets/images/camera.png" alt="camera" />
+			<icon-toggle [bg]="'#F5F5F5'" [bgToggle]="'#F5F5F5'" [icon]="'icon-light-theme.png'" [iconToggle]="'icon-dark-theme.png'" (toggle)="changeTheme($event)"></icon-toggle>
+		</div>
+		<div class="main-content">
+			<div class="screen bg-slate-100 w-9/12"></div>
+			<div class="chat-box bg-slate-100 w-3/12"></div>
+		</div>
+	</div>
+</ng-container>
