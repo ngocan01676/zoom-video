@@ -9,9 +9,10 @@ import { MeetingViewModel } from '../../viewmodels/meeting.viewmodel';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeetingPage {
-	constructor(public meetingViewMoel: MeetingViewModel, private themeService: ThemeService) {}
+	constructor(public meetingViewModel: MeetingViewModel, private themeService: ThemeService) {}
 	changeTheme(isToggle: boolean) {
 		const active = this.themeService.getActiveTheme();
+		console.log(active);
 		if (active.name === 'light') {
 			this.themeService.setTheme('dark');
 		} else {
